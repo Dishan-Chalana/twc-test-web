@@ -25,3 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+@layer utilities {
+  .text-custom-color {
+    color: #083F46;
+  }
+
+  .placeholder-custom-color::placeholder {
+    color: #083F46;
+  }
+}
