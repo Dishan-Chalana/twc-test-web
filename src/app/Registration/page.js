@@ -2,9 +2,40 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 
 const registration = () => {
+  const router = useRouter();
 
+  //registration function
+  const registerUser = async (userData) => {
+    try {
+      // Make a POST request to the login endpoint with user data
+      const res = await fetch('http://localhost:3001/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+
+      const data = await res.json();
+      const token = data.token;
+      console.log(res);
+
+      console.log('Registered successfully');
+      await router.push('/contacts', { replace: true });
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+  // State variable to store form input values
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
@@ -16,8 +47,9 @@ const registration = () => {
     setCredentials({ ...credentials, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await registerUser(credentials);
   };
 
   return (
@@ -29,7 +61,7 @@ const registration = () => {
         <div className="w-2/3 lg:w-1/2  mx-auto">
           <p className="text-white font-bold font-Futura text-7xl leading-12 mb-5">Register Now,</p>
 
-          <form action="" className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input className="p-2 mt-5 rounded-full border text-3xl font-bold text-custom-color font-Futura h-28 pl-14 placeholder-custom-color"
               type="email"
               name="email"
