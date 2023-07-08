@@ -39,7 +39,7 @@ const registration = () => {
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
-    confirmPass: ''
+    confirmPassword: ''
   });
 
   const handleInputChange = (e) => {
@@ -84,10 +84,10 @@ const registration = () => {
 
             <input className="p-2 mt-5 rounded-full border text-3xl font-bold text-custom-color font-Futura h-28 pl-14 placeholder-custom-color"
               type="password"
-              name="confirmPass"
+              name="confirmPassword"
               placeholder="confirm password"
-              id="confirmPassInput"
-              value={credentials.confirmPass}
+              id="confirmPasswordInput"
+              value={credentials.confirmPassword}
               onChange={handleInputChange}
               required
             />

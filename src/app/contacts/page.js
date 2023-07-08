@@ -1,5 +1,7 @@
+"use client";
 import Image from 'next/image';
-import Link from 'next/link';
+import LogoutButton from '../components/LogoutButton';
+
 
 const newContact = () => {
   return (
@@ -55,16 +57,7 @@ const newContact = () => {
               </button>
             </div>
 
-            <div className="flex flex-row gap-4 fixed bottom-0 right-0 m-20">
-              <Image src="/images/bx_log-out-circle.svg" alt="Image" width={60} height={90} />
-
-              <p className="text-white text-3xl mt-4">
-                <Link href="/" className="text-white underline cursor-pointer">
-                  logout
-                </Link>
-              </p>
-            </div>
-
+            <LogoutButton />
 
           </form>
 

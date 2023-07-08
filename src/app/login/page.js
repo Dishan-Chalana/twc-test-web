@@ -1,12 +1,23 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 
+
 export default function Login() {
   const router = useRouter();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {	
+    // Check if the user is already logged in	
+    const token = Cookies.get("token");	
+    if (token) {	
+      router.replace("/");	
+    }	
+  }, []);
 
   //login function
   const loginUser = async (userData) => {
@@ -20,14 +31,22 @@ export default function Login() {
         body: JSON.stringify(userData),
       });
 
-      const data = await res.json();
-      const token = data.token;
-      console.log(res);
+      if (res.ok) {
+        const data = await res.json();
+        const token = data.token;
 
-      console.log("Logged in successfully");
-      await router.push("/contacts", { replace: true });
+        // Store the token in cookies or local storage
+        Cookies.set("token", token); // Example using js-cookie
+        console.log("Logged in successfully");
+        await router.push("/contacts", { replace: true });
 
-      // Update the user state or perform any other actions
+        // Store the token in cookies or local storage
+        setIsLoggedIn(true);
+
+
+      } else {
+        console.log("Login failed");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +70,7 @@ export default function Login() {
   };
 
   return (
+    
     <div className="h-screen bg-gray-50 flex flex-col md:flex-row bg-[url('/images/bg-pattern.svg')]">
       {/* Left half */}
       <div className="w-full flex items-center relative bg-cover bg-[url('/images/ellipse1.svg')]">
@@ -89,7 +109,6 @@ export default function Login() {
               <button
                 onClick={async (e) => {
                   e.preventDefault();
-                  console.log("djfhdjfhjdhf");
                   await loginUser(credentials);
                 }}
                 className="bg-transparent rounded-full text-white py-3 text-3xl px-14 hover:scale-105 duration-300 w-9vw h-6vh border border-white"
