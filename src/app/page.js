@@ -2,10 +2,12 @@
 import Image from 'next/image';
 import React from 'react';
 import LogoutButton from './components/LogoutButton';
+import { withAuth } from './utills/withAuth';
+import AddContactButton from './components/AddContactButton';
 
 
 
-export default function Home() {
+function Home() {
   
   return (
     <div className="h-screen bg-gray-50 flex flex-col md:flex-row bg-[url('/images/bg-pattern.svg')]">
@@ -22,11 +24,7 @@ export default function Home() {
 
           <p className="text-white font-Futura text-4xl  leading-10 mb-8 mt-[2rem]">This is where your contacts live.Click the button below <br /> to add new contact.</p>
 
-          <div className="flex items-center mt-10">
-            <button className="bg-transparent rounded-full text-white py-3 text-3xl px-14 hover:scale-105 duration-300 w-9vw h-6vh border border-white mt-[5rem] ">
-              add your first contact
-            </button>
-          </div>
+          <AddContactButton />
 
           <LogoutButton />
 
@@ -37,3 +35,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default withAuth(Home);
