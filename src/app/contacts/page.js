@@ -48,6 +48,11 @@ const Contact = () => {
 		}
 	};
 
+	// Button click handler
+	const handleAddNewContact = () => {
+		router.push('/contacts/new');
+	};
+
 	return (
 		<div className="h-screen bg-gray-50 flex flex-col md:flex-row bg-[url('/images/bg-pattern.svg')]">
 			<div className="w-full flex items-center relative bg-cover bg-[url('/images/ellipse2.svg')]">
@@ -57,7 +62,7 @@ const Contact = () => {
 						<img src="/images/contacts-portal-white.svg" alt="Contacts Portal" width={255} height={90} />
 					</div>
 					<p className="text-white font-bold font-Futura text-7xl leading-12 mt-10 mb-5">Contacts</p>
-	
+
 					<div className="mt-10">
 						<table className="w-full bg-white rounded-lg relative">
 							<thead>
@@ -105,26 +110,27 @@ const Contact = () => {
 								))}
 							</tbody>
 						</table>
-	
+
 						<button
-							type="submit"
-							className="absolute top-0 right-0 mt-5 mr-5 bg-transparent rounded-full text-white py-3 text-3xl px-14 hover:scale-105 duration-300 border border-white"
+							type="button"
+							className="absolute top-0 right-0 mt-[38rem] mr-[30rem] bg-transparent rounded-full text-white py-3 text-3xl px-14 hover:scale-105 duration-300 border border-white"
+							onClick={handleAddNewContact}
 						>
 							Add New Contact
 						</button>
 					</div>
-	
-	
+
+
 					<LogoutButton />
 				</div>
 			</div>
 		</div>
 	);
-	
-	
-	
-	
-	
+
+
+
+
+
 };
 
 export default withAuth(Contact);
