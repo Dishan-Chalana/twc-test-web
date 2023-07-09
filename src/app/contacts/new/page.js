@@ -28,16 +28,17 @@ const newContact = () => {
         body: JSON.stringify(contactData)
       });
 
-      const data = await res.json();
-      const token = data.token;
-      console.log(res);
-
-      console.log('Registered successfully');
-      await router.push('/contacts', { replace: true });
-
-
+      if (res.ok) {
+        // Contact created successfully
+        console.log('Contact created successfully');
+        await router.push('/contacts', { replace: true });
+      } else {
+        // Handle error response
+        const errorData = await res.json();
+        console.log('Failed to create contact:', errorData.error);
+      }
     } catch (error) {
-      console.log(error);
+      console.log('Failed to create contact:', error);
     }
   };
 
