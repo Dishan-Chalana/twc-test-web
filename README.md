@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Contact Management app
 
-First, run the development server:
+This repository contains a Contact Management App that allows users to perform CRUD operations on contact records. It provides an intuitive interface for managing personal or business contacts effectively.
+
+
+## Tech Stack
+
+**Client:** Next js, TailwindCSS
+
+**Server:** Node, Express
+
+**Database** MongoDB
+
+
+## Screenshots
+
+![Welcome](https://github.com/Dishan-Chalana/twc-test-web/assets/84405840/796ea46f-a740-45d6-bd79-91680edfaecc)
+
+![Login](https://github.com/Dishan-Chalana/twc-test-web/assets/84405840/2c22435e-6064-46ee-9573-7fbc709059f8)
+
+![Register](https://github.com/Dishan-Chalana/twc-test-web/assets/84405840/14f5de7c-2371-404b-bb16-86620a1431ee)
+
+![Contacts](https://github.com/Dishan-Chalana/twc-test-web/assets/84405840/eed61cbc-bf8f-4ea0-84a2-dfe40a73edc2)
+
+![Add first contact](https://github.com/Dishan-Chalana/twc-test-web/assets/84405840/e0ef509d-635b-4872-bca2-ad53d9875d82)
+
+
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  git clone https://github.com/Dishan-Chalana/twc-test-web
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+  cd twc-test-web
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Install dependencies
 
-## Learn More
+```bash
+  npm i
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Open http://localhost:3000 with your browser to see the result.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For any questions, suggestions, or support, please feel free to reach out. I appreciate your feedback.
+
